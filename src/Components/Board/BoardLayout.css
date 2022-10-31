@@ -1,0 +1,72 @@
+.board{
+    float: left;
+    display: grid;
+    margin-top: 0.6em;
+    margin-left: 2em;
+    grid-template-rows: repeat(10,63px);
+    grid-template-columns: repeat(10,90px);
+    gap: 1px;
+  }
+  
+  .oddcell{
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border-style: solid;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .evencell{
+    background-color:#60939b;
+    color: rgb(250, 243, 243);
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    display: flex;
+    justify-content: space-between;
+   
+  }
+
+  .numbersOncell{
+    margin-top: -5px;
+    font-size: 30px;
+  }
+  
+  .fromTo{
+    color: black;
+    margin-top: -45px;
+    margin-left: 3px;
+    font-size: 10px;
+    width: 20px;
+    background-color: rgb(248, 163, 106);
+    font-family: initial;
+    font-weight: bold;
+    border-radius: 2px;
+  }
+
+  .ladderorSnake{
+    margin-top: -25px;
+    margin-left: 15px;
+    font-size: 20px;
+  }
+  
+  .playersOncell{
+    font-size: 8px;
+    margin-top: -1px;
+    justify-content: center;
+  }
+  
+  .playersymbol{
+    display:grid ;
+    margin-top: -10px;
+    margin-left: -10px;
+    grid-template-rows: repeat(5,11px);
+    grid-template-columns: repeat(4,13px);   
+  }
+
+  .symbolOncell{
+    font-size: 10px;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: rgb(0 0 0);
+  }

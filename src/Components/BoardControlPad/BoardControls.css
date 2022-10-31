@@ -1,0 +1,95 @@
+.dice-number{
+  height: 1.7em;
+  width: 1.3em;
+  border-style: solid;
+  padding-left: 0.8em;
+  padding-top: 7px;
+  color: aliceblue;
+  box-shadow: 0px 8px 15px rgb(0 0 0 / 45%);
+  margin: auto;
+  text-align: center;
+  font-size: 3.5em;
+  border-radius: 20px;
+  background-color: #e0442e;
+
+}
+  .button-Div {
+    background-image: linear-gradient(to right, rgb(209 204 204) , #e5e537);
+    height: 40px;
+    width: 70%;
+    border-radius: 0.9em;
+    margin-top: 10px;
+  }
+  
+  .button-Div:hover {
+    background-image: linear-gradient(to right, rgb(255, 61, 61) , #858584);
+    background-color: #58e412;
+    color: #e7e71d;
+    border-style: solid;
+    border-color:  #f3f3e5;
+  }
+
+  .buttons-pad{
+    height: 38.2em;
+    width: 19em;
+    float: right;
+    margin-top: 8.6px;
+    text-align: center;
+    border-radius: 0.7em;
+    background-color: #60939b;
+    padding: 0.9em 0.3em 0.8em 0.9em;
+    border: solid;
+    border-color: #000000;
+  }
+  
+  .textDetails{
+    background-color: black;
+    height: 2em;
+    border-radius: 20px;
+    font-size: 10px;
+    padding-top: 8px;
+    color: rgb(204, 248, 9);
+  }
+  
+  .restart{
+    background-color: rgb(180, 171, 171);
+    height: 25px;
+    margin-top: 10px;
+  }
+  
+  .boardDetails{
+    margin-top: 18px;
+  }
+
+
+  .winners-Names{
+    display:grid ;
+    grid-template-rows: repeat(5,22px);
+    grid-template-columns: repeat(4,75px);
+    column-gap: 0.2em;
+    row-gap: 0.2em;
+    margin-left: -8px;
+  }
+
+  .winners{
+    font-size: 13px;
+    background-image: linear-gradient(to right, rgb(227, 230, 104) , #cbcfbc);
+    color: rgb(15, 11, 11);
+    height: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 0.6em;
+    border-color:black;
+  }
+
+  .previous-player-text{
+    color: #080808;
+    font-size: 10px;
+  }
+.winners-text{
+  color: #080808;
+  font-size: 20px;
+  font-family: fangsong;
+  background-color: #dbc81b;
+  border-radius: 10px;
+}

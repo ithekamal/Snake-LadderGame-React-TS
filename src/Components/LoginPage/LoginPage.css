@@ -1,0 +1,67 @@
+.Login-page{
+  background-image: url("https://www.scifinow.co.uk/wp-content/uploads/2020/11/White-Snake.jpg");
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center; 
+  height: 48rem;
+}
+
+ .totalplayers-inputpage{
+    text-align: center;
+    padding-top: 17em;
+    padding-bottom: 17em;
+}
+
+#totalPlayer-inp-Field{
+  margin-top: 10px;
+    height: 2em;
+}
+
+  .Username{
+    display: inline;
+  }
+  
+  .individualUserinput{
+    padding-top: 15%;
+    text-align: center;
+  }
+  
+  input[type=text] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+  }
+  
+  input[type=text]:focus {
+    background-color: lightblue;
+    
+  }
+  
+  #submit-btn{
+    height: 2em;
+    width: 6em;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 20px;
+    background-color: rgb(141, 209, 181);
+    border: none;
+    margin-top: 10px;
+    width: 90px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  #submit-btn:hover{
+    background-color: rgb(105, 139, 139);
+  }
+
+  .helping-text{
+    color: azure;
+    height: 10em;
+    width: 10em;
+    border-radius: 10px;
+    text-shadow: 2px 2px 4px #000000;
+    display: inline;
+    
+  } 
+
