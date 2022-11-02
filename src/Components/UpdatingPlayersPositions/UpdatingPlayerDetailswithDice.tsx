@@ -1,26 +1,22 @@
 import updatePlayerPositionswithsnakeandLadderPositionInformations from "./updatePlayerPositionswithsnakeandLadderPositionInformations";
 import UpdatedPlayerNextPosition from "./UpdatedPlayerNextPosition";
 import { individualPlayerInformations } from "../LoginPage/LoginPage";
-
+import updatingNextTurn from "./updatingNextTurn";
 interface returnOfUpdatingPlayerDetails {
   updatedPlayersInformation: individualPlayerInformations[];
   nextPlayerTurnNmber: number;
-  winnedPlayers: string[];
+  winnedPlayers: number[];
 }
 
 function UpdatingPlayerDetailswithDice(
   playersDetails: individualPlayerInformations[],
   diceNumber: number,
   playerTurnNumber: number,
-  playerNameDetails: string[],
-  playerWinned: string[]
+  playerWinned: number[]
 ): returnOfUpdatingPlayerDetails {
   //Current cellNumber(positions) of a player
   let currentPositionOfaPlayer: number =
-    playersDetails[playerTurnNumber].playerMoves[
-      playersDetails[playerTurnNumber].playerMoves.length - 1
-    ];
-
+    playersDetails[playerTurnNumber].playerMoves.slice(-1)[0];
   //returning 0 if the player next moving cell don't have any catch, returning ending position of catch(snake/ladder) if cell has catch
   let playerPositionChangedbySnakeorLadder: number =
     updatePlayerPositionswithsnakeandLadderPositionInformations(
@@ -33,14 +29,14 @@ function UpdatingPlayerDetailswithDice(
     playerPositionChangedbySnakeorLadder === 100
   ) {
     playersDetails[playerTurnNumber].playerMoves.push(100);
-    playerWinned.push(playersDetails[playerTurnNumber].playerName);
+    playerWinned.push(playersDetails[playerTurnNumber].playerQuniqueId);
     alert(
       "We Got The Winner!!!" + playersDetails[playerTurnNumber].playerName + "."
     );
-    playerTurnNumber === playerNameDetails.length - 1
-      ? (playerTurnNumber = 0)
-      : (playerTurnNumber += 1);
-  } else {
+  } else if (
+    currentPositionOfaPlayer + diceNumber <= 100 &&
+    currentPositionOfaPlayer !== 0
+  ) {
     playerPositionChangedbySnakeorLadder === 0
       ? (playersDetails = UpdatedPlayerNextPosition(
           playersDetails,
@@ -48,23 +44,25 @@ function UpdatingPlayerDetailswithDice(
           diceNumber
         ))
       : playersDetails[playerTurnNumber].playerMoves.push(
-          playerPositionChangedbySnakeorLadder
+          currentPositionOfaPlayer + diceNumber
         );
+  } else if (currentPositionOfaPlayer === 0 && diceNumber === 1) {
+    playersDetails[playerTurnNumber].playerMoves.push(diceNumber);
   }
 
-  //Updating turn for for next Player
-  if (diceNumber !== 1 && diceNumber !== 5 && diceNumber !== 6) {
-    playerTurnNumber === playerNameDetails.length - 1
-      ? (playerTurnNumber = 0)
-      : (playerTurnNumber += 1);
+  //updating/Changing the turn for next player
+  if (
+    (diceNumber !== 1 && diceNumber !== 5 && diceNumber !== 6) ||
+    currentPositionOfaPlayer + diceNumber === 100 ||
+    playerPositionChangedbySnakeorLadder === 100
+  ) {
+    console.log('\nYes Going For turn updation')
+    playerTurnNumber = updatingNextTurn(
+      playersDetails,
+      playerWinned,
+      playerTurnNumber
+    );
   }
-  //again Updating turn if the next Player already won in this game(skipping winned players)
-  if (playerWinned.includes(playerNameDetails[playerTurnNumber])) {
-    playerTurnNumber === playerNameDetails.length - 1
-      ? (playerTurnNumber = 0)
-      : (playerTurnNumber += 1);
-  }
-
   return {
     updatedPlayersInformation: playersDetails,
     nextPlayerTurnNmber: playerTurnNumber,

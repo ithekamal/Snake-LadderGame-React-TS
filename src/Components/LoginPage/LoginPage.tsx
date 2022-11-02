@@ -5,6 +5,7 @@ import BoardControls from "../BoardControlPad/BoardControls";
 export interface individualPlayerInformations {
   playerName: string;
   playerSymbol: string;
+  playerQuniqueId:number
   playerMoves: number[];
 }
 
@@ -37,7 +38,8 @@ export default function UserInputField() {
         playersInformations.push({
           playerName: playerName,
           playerSymbol: playerSymbol,
-          playerMoves: [],
+          playerQuniqueId:playersCount,
+          playerMoves: [0],
         });
         SetPlayersCount(playersCount + 1);
       } else {
@@ -120,9 +122,6 @@ export default function UserInputField() {
         </div>
       ) : null}
       <div ></div>
-
-
-
       {newGame === true && playersCount > Number(totalPlayers) ? (
         alert("Welcome To the Snake and Ladder game!!"+"\n"+"GAME RULES >>>"+
         "\n\n"+">> Players Should get the dice 1, to start their Game"+"\n"+

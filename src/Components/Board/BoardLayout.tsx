@@ -39,6 +39,7 @@ function printingSnakeOrLadder(cellnumber: number) {
 }
 
 const BoardLayout = (updatedplayersInformations:setPlayerSymbol) => {
+  console.log("whast i got here is",updatedplayersInformations)
 
   let boardCellNumbers:number[] = playerNumbersForCell(100);
 
