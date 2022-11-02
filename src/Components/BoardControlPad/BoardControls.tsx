@@ -4,10 +4,6 @@ import UpdatingPlayerDetailswithDice from "../UpdatingPlayersPositions/UpdatingP
 import { individualPlayerInformations } from "../LoginPage/LoginPage";
 import BoardLayout from "../Board/BoardLayout";
 
-
-
-
-
 interface userData {
   props: individualPlayerInformations[];
 }
@@ -20,8 +16,7 @@ let winnersList: number[] = [];
 
 //props: userData
 
-function BoardControls(props: userData) {
-  console.log("The prop is--------------------------------------------------",props)                                 //props.props
+function BoardControls(props: userData) {                             
   const [updatedPlayersPosition,setupdatedPlayersPosition] = useState<individualPlayerInformations[]>(props.props)
   const [updated, SetUpdated] = useState<boolean>(false)
 
@@ -30,7 +25,6 @@ function BoardControls(props: userData) {
   }, [updated]);
   //Updating each Player Position based On the Dice number
   function rollingDiceandUpdatingPlayersDetails() {
-    console.log('winners array',winnersList,updatedPlayersPosition.length)
     if (winnersList.length === updatedPlayersPosition.length - 1) {
       alert(
         "Game is Ended!!!do You want to Restart the game?" +
@@ -48,7 +42,6 @@ function BoardControls(props: userData) {
       );
       setupdatedPlayersPosition(newupdatedPlayerInformations.updatedPlayersInformation)
       currentTurnNumber = nextTurnNumber
-      console.log("the turn number is",currentTurnNumber)
       nextTurnNumber = newupdatedPlayerInformations.nextPlayerTurnNmber;
       winnersList = newupdatedPlayerInformations.winnedPlayers;
     }
