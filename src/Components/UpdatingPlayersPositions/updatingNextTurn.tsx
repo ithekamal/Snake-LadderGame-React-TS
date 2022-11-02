@@ -15,11 +15,7 @@ function updatingNextTurn(playersDetatails:individualPlayerInformations[],winned
     }
    }}
    
-  console.log('Was it updated',playerTurnNumber)
-  //yes updated
-
   //if the current turn number was the last player in array/set then giving turn to unwinned player
-  // playerTurnNumber === playersDetatails.length - 1 
    if( playerTurnNumber === currentTurn){
       playerTurnNumber = findingplayersOnGame(playersDetatails, winnedPlayers)[0] - 1
    }
