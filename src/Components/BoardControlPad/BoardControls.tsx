@@ -76,7 +76,6 @@ function BoardControls(props: userData) {
         </h1>
         <div className="boardDetails">
           <h1 className="textDetails">
-            current turn : {currentTurnNumber}
             PLAYER NAME :{updatedPlayersPosition[currentTurnNumber].playerName}
           </h1>
           <h1 className="textDetails">DICE GOT : {dice}</h1>
