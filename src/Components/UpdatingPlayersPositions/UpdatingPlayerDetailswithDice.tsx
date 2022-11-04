@@ -33,14 +33,14 @@ function UpdatingPlayerDetailswithDice(
     alert(
       "We Got The Winner!!!" + playersDetails[playerTurnNumber].playerName + "."
     );
-  } else if(playerPositionChangedbySnakeorLadder !== 0){
+  } else if(playerPositionChangedbySnakeorLadder !== 0 && currentPositionOfaPlayer !== 0){
     playersDetails[playerTurnNumber].playerMoves.push(playerPositionChangedbySnakeorLadder)
   }
   else if (
     currentPositionOfaPlayer + diceNumber <= 100 &&
     currentPositionOfaPlayer !== 0
   ) {
-    playerPositionChangedbySnakeorLadder === 0
+    playerPositionChangedbySnakeorLadder === 0  && 
       ? (playersDetails = UpdatedPlayerNextPosition(
           playersDetails,
           playerTurnNumber,
