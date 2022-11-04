@@ -33,7 +33,10 @@ function UpdatingPlayerDetailswithDice(
     alert(
       "We Got The Winner!!!" + playersDetails[playerTurnNumber].playerName + "."
     );
-  } else if (
+  } else if(playerPositionChangedbySnakeorLadder !== 0){
+    playersDetails[playerTurnNumber].playerMoves.push(playerPositionChangedbySnakeorLadder)
+  }
+  else if (
     currentPositionOfaPlayer + diceNumber <= 100 &&
     currentPositionOfaPlayer !== 0
   ) {
