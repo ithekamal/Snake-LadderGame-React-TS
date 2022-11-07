@@ -33,14 +33,18 @@ function UpdatingPlayerDetailswithDice(
     alert(
       "We Got The Winner!!!" + playersDetails[playerTurnNumber].playerName + "."
     );
-  } else if(playerPositionChangedbySnakeorLadder !== 0 && currentPositionOfaPlayer !== 0){
-    playersDetails[playerTurnNumber].playerMoves.push(playerPositionChangedbySnakeorLadder)
-  }
-  else if (
+  } else if (
+    playerPositionChangedbySnakeorLadder !== 0 &&
+    currentPositionOfaPlayer !== 0
+  ) {
+    playersDetails[playerTurnNumber].playerMoves.push(
+      playerPositionChangedbySnakeorLadder
+    );
+  } else if (
     currentPositionOfaPlayer + diceNumber <= 100 &&
     currentPositionOfaPlayer !== 0
   ) {
-    playerPositionChangedbySnakeorLadder === 0  && 
+    playerPositionChangedbySnakeorLadder === 0
       ? (playersDetails = UpdatedPlayerNextPosition(
           playersDetails,
           playerTurnNumber,
@@ -59,7 +63,6 @@ function UpdatingPlayerDetailswithDice(
     currentPositionOfaPlayer + diceNumber === 100 ||
     playerPositionChangedbySnakeorLadder === 100
   ) {
-    console.log('\nYes Going For turn updation')
     playerTurnNumber = updatingNextTurn(
       playersDetails,
       playerWinned,
