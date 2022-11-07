@@ -17,7 +17,7 @@ export let snakeandLadderPositionInformations: snakeorLadderPositionInformations
     { startingCell: 62, endingCell: 19, typeOfcatch: "snake" },
     { startingCell: 64, endingCell: 60, typeOfcatch: "snake" },
     { startingCell: 72, endingCell: 91, typeOfcatch: "ladder" },
-    { startingCell: 80, endingCell: 98, typeOfcatch: "ladder" },
+    { startingCell: 80, endingCell: 96, typeOfcatch: "ladder" },
     { startingCell: 87, endingCell: 36, typeOfcatch: "snake" },
     { startingCell: 93, endingCell: 78, typeOfcatch: "snake" },
     { startingCell: 94, endingCell: 75, typeOfcatch: "snake" },
