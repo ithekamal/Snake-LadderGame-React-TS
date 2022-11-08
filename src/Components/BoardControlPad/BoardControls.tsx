@@ -13,16 +13,9 @@ let nextTurnNumber: number = 0;
 let currentTurnNumber: number = 0;
 let winnersList: number[] = [];
 
-
-//props: userData
-
 function BoardControls(props: userData) {                             
   const [updatedPlayersPosition,setupdatedPlayersPosition] = useState<individualPlayerInformations[]>(props.props)
-  const [updated, SetUpdated] = useState<boolean>(false)
 
-  useEffect(() => {
-    winnersList = winnersList
-  }, [updated]);
   //Updating each Player Position based On the Dice number
   function rollingDiceandUpdatingPlayersDetails() {
     if (winnersList.length === updatedPlayersPosition.length - 1) {
@@ -32,34 +25,32 @@ function BoardControls(props: userData) {
           "Click The Restart Button to Restart the Game"
       );
     }else{
-
-      dice =    Math.ceil(Math.random() * 6);
+      dice = Math.ceil(Math.random() * 6);
       let newupdatedPlayerInformations = UpdatingPlayerDetailswithDice(
         updatedPlayersPosition,
         dice,
         nextTurnNumber,
         winnersList
       );
-      setupdatedPlayersPosition(newupdatedPlayerInformations.updatedPlayersInformation)
+      setupdatedPlayersPosition(([... newupdatedPlayerInformations.updatedPlayersInformation]))
       currentTurnNumber = nextTurnNumber
       nextTurnNumber = newupdatedPlayerInformations.nextPlayerTurnNmber;
       winnersList = newupdatedPlayerInformations.winnedPlayers;
     }
-    SetUpdated(!updated);
   }
 
-  //resetting each playerMoves on playerDetails,and turn and list of winnerplayers to  0
+  //resetting each playerMoves on playerDetails,also resetting turn and list of winnerplayers to  0
   function restart() {
     currentTurnNumber = 0 
     nextTurnNumber = 0;
     dice = 0;
     winnersList = [];
-    updatedPlayersPosition.map((player) => (player.playerMoves = [0]));
-    SetUpdated(!updated);
+    let playerPositionsReseted = updatedPlayersPosition
+    playerPositionsReseted.map((player) => player.playerMoves = [0])
+    setupdatedPlayersPosition([...playerPositionsReseted])
   }
 
   return (
-
     <div className="board-layout">
       <div className="buttons-pad">
         <div className="dice-square">
@@ -104,9 +95,11 @@ function BoardControls(props: userData) {
             <h1 className="textDetails">Let's Hope For One Next Turn !! </h1>
           ):null}
         </div>
-
         <button type="button" className="restart" onClick={restart}>
           RESTART!!!
+        </button>
+        <button type="button" className="restart" onClick={() => window.location.reload()}>
+          NEW GAME
         </button>
         {winnersList.length! ? (
           <h1 className="winners-text">Winners!!!</h1>
@@ -121,13 +114,9 @@ function BoardControls(props: userData) {
           ))}
         </div>
       </div>
-      {<BoardLayout updatedplayerDetails={updatedPlayersPosition} />}
-    
+      {<BoardLayout updatedplayerDetails = {updatedPlayersPosition} />}
     </div>
-
- 
   );
 }
 
 export default BoardControls;
-
